@@ -1,6 +1,3 @@
 {
-    "java.project.sourcePaths": [
-        "Level1",
-        "Collections"
-    ]
+  "java.project.sourcePaths": ["Level1", "Collections", "Level2"]
 }
