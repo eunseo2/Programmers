@@ -16,6 +16,12 @@ public class Set  {
         for(String str: set){
             System.out.println(str+ " ");
         }
+        
+
+        //  있는지 확인
+        if(set.contains("eunseo")){
+            System.out.println("yes");
+        }
 
         TreeSet<Integer> set2 = new TreeSet<>();
         set2.add(90);
