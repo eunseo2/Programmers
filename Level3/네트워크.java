@@ -5,39 +5,36 @@ public class 네트워크 {
     
     
     public int solution(int n, int[][] computers) {
-        int answer = 0;
-        visited = new boolean[n];
+        boolean[] visited = new boolean[n];
         
+        int answer = 0;
         for(int i=0; i<n; i++){
             if(!visited[i]){
-                System.out.print(i);
-                bfs(computers,i);
-                answer++;
+                 bfs(i,computers,visited,n);
+                 answer++;
             }
         }
-        return answer;
-
         
-
+        return answer;
     }
     
-    public void bfs(int[][]computers,int node){
+    public static void bfs(int start, int[][]computers, boolean[]visited, int n){
         Queue<Integer> q = new LinkedList<>();
         
-        q.offer(node);
-        
-        visited[node] = true;
+        q.offer(start);
+        visited[start] = true;
         
         while(!q.isEmpty()){
             int x = q.poll();
-            
-            for(int i=0; i<computers.length; i++){
-                if(!visited[i] && x!=i && computers[x][i] == 1){
+
+            for(int i=0; i<n; i++){
+                if(!visited[i] && computers[x][i] == 1 ){
                     q.offer(i);
                     visited[i] = true;
                 }
             }
         }
+           
     }
     
 }
