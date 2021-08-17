@@ -1,3 +1,10 @@
 {
-  "java.project.sourcePaths": ["Level1", "Collections", "Level2", "Level3"]
+  "java.project.sourcePaths": [
+    "Level1",
+    "Collections",
+    "Level2",
+    "Level3",
+    "Level4",
+    "Weekly Challenge"
+  ]
 }
