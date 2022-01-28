@@ -1,29 +1,29 @@
 import java.util.*;
 
-class 완주하지못한선수 {
+class Solution {
     public String solution(String[] participant, String[] completion) {
-        String answer = "";
-        Map<String,Integer> map = new HashMap<>();
-  
-            
-        for(String key : participant){
-            
-            if(!map.containsKey(key))
-                map.put(key,1);
-            else{
-               map.put(key,map.get(key)+1);
+        Map<String,Integer> check = new HashMap<>();
+        
+        for(String p : participant){
+            if(check.containsKey(p)){
+                check.put(p,check.get(p)+1); 
+            }else{
+                check.put(p,1);
             }
         }
         
-        for(String key: completion){
-            map.put(key, map.get(key)-1);
+        for(String c : completion){
+            if(check.containsKey(c)){
+                check.put(c,check.get(c)-1);
+            }
         }
+           
+        String answer = "";
         
-        for(String key : map.keySet()){
-            if(map.get(key) ==1) answer = key;
+        for(String key : check.keySet()){
+            if(check.get(key) ==1) answer += key;
         }
-
-
+      
         return answer;
     }
 }
