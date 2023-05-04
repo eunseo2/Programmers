@@ -1,0 +1,75 @@
+# 문제
+
+- [연산자 끼워 넣기 : 이것이 코딩테스트다 p.349]
+
+# 내용
+- 수와 수 사이에 연산자 결정을 완전탐색으로 모든 경우에 대하여 최대값 및 최소값을 구하면 된다.  
+
+# 문제 풀이
+```java
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+	private static int add = 2;
+	private static int sub = 1;
+	private static int mul = 1;
+	private static int div = 1;
+
+	private static int N = 0;
+	private static ArrayList<Integer> arr = new ArrayList<>();
+
+	private static int max = Integer.MIN_VALUE;
+	private static int min = Integer.MAX_VALUE;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		N = sc.nextInt();
+
+		for (int i = 0; i < N; i++) {
+			arr.add(sc.nextInt());
+		}
+
+		dfs(1, arr.get(0));
+
+		System.out.println(max);
+		System.out.println(min);
+
+	}
+
+	public static void dfs(int i, int sum) {
+		if (i == N) {
+			max = Math.max(max, sum);
+			min = Math.min(min, sum);
+			return;
+		}
+
+		if (add > 0) {
+			add -= 1;
+			dfs(i + 1, sum + arr.get(i));
+			add += 1;
+		}
+
+		if (sub > 0) {
+			sub -= 1;
+			dfs(i + 1, sum - arr.get(i));
+			sub += 1;
+		}
+
+		if (mul > 0) {
+			mul -= 1;
+			dfs(i + 1, sum * arr.get(i));
+			mul += 1;
+		}
+
+		if (div > 0) {
+			div -= 1;
+			dfs(i + 1, sum / arr.get(i));
+			div += 1;
+		}
+	}
+
+}
+```
