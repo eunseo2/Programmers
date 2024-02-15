@@ -12,9 +12,17 @@ class Solution {
 		for (int i = 1; i < targets.length; i++) {
 			int nextX = targets[i][0];
 			int nextY = targets[i][1];
+            
+            
+//             System.out.println("start : " + start);
+//             System.out.println("end : " + end);
+            
+            
+//             System.out.println("nextX : " + nextX);
+//             System.out.println("nextY : " + nextY);
 
 			if (nextX < end) {
-				start = Math.max(start, nextX);
+				// start = Math.max(start, nextX);
 				end = Math.min(end, nextY);
 			} else {
 				answer++;
